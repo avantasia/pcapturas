@@ -1,0 +1,4 @@
+Challenge 2: Browsers under attack (intermediate)
+
+http://www.honeynet.org/challenges/2010_2_browsers_under_attack
+
