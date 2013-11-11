@@ -4,7 +4,7 @@ Challenge 2 - browsers under attack - (provided by Nicolas Collery from the Sing
 
 Skill Level: Intermediate 
 
-# The Challenge:
+### The Challenge
 
 A network trace with attack data is provided. (Note that the IP address of the victim has been changed to hide the true location.) Analyze and answer the following questions:
 
