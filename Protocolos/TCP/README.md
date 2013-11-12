@@ -1,6 +1,8 @@
 TCP
 =========
 
+**TCP-retransmission** de "Practical Packet Analysis - Using Wireshark to Solve Real-World Network Problems" - Chris Sanders
+
 **TCP-SACK **de http://packetlife.net/
 
 Descripción original:

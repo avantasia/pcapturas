@@ -1,7 +1,8 @@
 ICMP
 =========
+**icmp**, **destunreachable** y **icmp-tracert-slow** de "Practical Packet Analysis - Using Wireshark to Solve Real-World Network Problems" - Chris Sanders
 
-**icmp fragmented ** de http://packetlife.net/
+**icmp** **fragmented** de http://packetlife.net/
 
 Descripción original:
 pinged google.com with -l option in windows which allows us to set the data size of the packet.
