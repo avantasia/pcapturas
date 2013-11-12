@@ -1,0 +1,33 @@
+bt ~ # xprobe2 -v -M ping:icmp_ping -M fingerprint:icmp_echo -M fingerprint:icmp                                             _port_unreach -p TCP:23:open 192.168.1.25
+
+Xprobe2 v.0.3 Copyright (c) 2002-2005 fyodor@o0o.nu, ofir@sys-security.com, mede                                             r@o0o.nu
+
+[+] Target is 192.168.1.25
+[+] Loading modules.
+[+] Following modules are loaded:
+[x] [1] ping:icmp_ping  -  ICMP echo discovery module
+[x] [2] fingerprint:icmp_echo  -  ICMP Echo request fingerprinting module
+[x] [3] fingerprint:icmp_port_unreach  -  ICMP port unreachable fingerprinting m                                             odule
+[+] 3 modules registered
+[+] Initializing scan engine
+[+] Running scan engine
+[+] Host: 192.168.1.25 is up (Guess probability: 100%)
+[+] Target: 192.168.1.25 is alive. Round-Trip Time: 0.00022 sec
+[+] Selected safe Round-Trip Time value is: 0.00045 sec
+[-] icmp_port_unreach::build_DNS_reply(): gethostbyname() failed! Using static i                                             p for www.securityfocus.com in UDP probe
+[+] Primary guess:
+[+] Host 192.168.1.25 Running OS: "Microsoft Windows 98" (Guess probability: 94%                                             )
+[+] Other guesses:
+[+] Host 192.168.1.25 Running OS: "Microsoft Windows 98 Second Edition (SE)" (Gu                                             ess probability: 94%)
+[+] Host 192.168.1.25 Running OS: "Microsoft Windows NT 4 Workstation" (Guess pr                                             obability: 94%)
+[+] Host 192.168.1.25 Running OS: "Microsoft Windows NT 4 Workstation Service Pa                                             ck 1" (Guess probability: 100%)
+[+] Host 192.168.1.25 Running OS: "Microsoft Windows NT 4 Workstation Service Pa                                             ck 2" (Guess probability: 100%)
+[+] Host 192.168.1.25 Running OS: "Microsoft Windows NT 4 Workstation Service Pa                                             ck 3" (Guess probability: 100%)
+[+] Host 192.168.1.25 Running OS: "Microsoft Windows NT 4 Workstation Service Pa                                             ck 4" (Guess probability: 100%)
+[+] Host 192.168.1.25 Running OS: "Microsoft Windows NT 4 Workstation Service Pa                                             ck 5" (Guess probability: 100%)
+[+] Host 192.168.1.25 Running OS: "Microsoft Windows NT 4 Workstation Service Pa                                             ck 6a" (Guess probability: 100%)
+[+] Host 192.168.1.25 Running OS: "Microsoft Windows NT 4 Server" (Guess probabi                                             lity: 100%)
+[+] Cleaning up scan engine
+[+] Modules deinitialized
+[+] Execution completed.
+bt ~ #
